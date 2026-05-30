@@ -1,2 +1,2 @@
 # cheese-tracker
-Piattaforma web per gestire tytte le fasi di produzione del formaggio.
+Piattaforma web per gestire tutte le fasi di produzione del formaggio.
