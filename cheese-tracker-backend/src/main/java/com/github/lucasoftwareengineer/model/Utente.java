@@ -12,7 +12,7 @@ import java.util.List;
  * Entità che rappresenta un utente del sistema di tracciamento del formaggio.
  */
 @Entity
-@Table(name = "utenti")
+@Table(name = "utenti", uniqueConstraints = @UniqueConstraint(columnNames = "ute_username"))
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,7 +33,7 @@ public class Utente {
     private String cognome;
 
     /** Username per l'autenticazione. */
-    @Column(name = "ute_username")
+    @Column(name = "ute_username", unique = true)
     private String username;
 
     /** Password cifrata dell'utente. */
