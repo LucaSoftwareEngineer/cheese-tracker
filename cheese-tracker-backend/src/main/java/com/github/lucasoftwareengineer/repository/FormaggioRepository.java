@@ -9,5 +9,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FormaggioRepository extends JpaRepository<Formaggio, Long> {
+    // Ricerca per descrizione (case‑insensitive) con paging
+    org.springframework.data.domain.Page<Formaggio> findByDescrizioneContainingIgnoreCase(String descrizione, org.springframework.data.domain.Pageable pageable);
 
 }
