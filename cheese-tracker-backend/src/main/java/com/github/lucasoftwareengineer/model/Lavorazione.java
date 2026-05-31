@@ -1,10 +1,7 @@
 package com.github.lucasoftwareengineer.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -17,7 +14,7 @@ import java.time.LocalDate;
  */
 @Entity
 @Table(name = "lavorazioni")
-@ToString
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Lavorazione {
