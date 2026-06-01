@@ -1,0 +1,45 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
+    <div class="flex flex-col items-center mb-4">
+      <div>
+        <img src="logo.png" class="h-16" alt="Logo">
+      </div>
+      <div class="text-blue-400 text-2xl font-bold text-center">
+        Cheese Tracker
+      </div>
+    </div>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="mb-4">
+        <label class="text-gray-800 block text-sm font-medium mb-1" for="username">Username</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          [(ngModel)]="username"
+          required
+          class="w-full border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-800"
+        />
+      </div>
+
+      <div class="mb-6">
+        <label class="text-gray-800 block text-sm font-medium mb-1" for="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          [(ngModel)]="password"
+          required
+          class="w-full border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-800"
+        />
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="cursor-pointer w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 transition-colors"
+      >
+        Accedi
+      </button>
+    </form>
+  </div>
+</div>
