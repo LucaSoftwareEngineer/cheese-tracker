@@ -8,6 +8,7 @@ import com.github.lucasoftwareengineer.model.Utente;
 import com.github.lucasoftwareengineer.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseCookie;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -40,6 +41,15 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
         String token = authService.authenticate(request);
-        return ResponseEntity.ok(new AuthResponse(token));
+        ResponseCookie cookie = ResponseCookie.from("jwt", token)
+        .httpOnly(true)
+        .secure(true)
+        .path("/")
+        .maxAge(3600)
+        .sameSite("Strict")
+        .build();
+    return ResponseEntity.ok()
+        .header("Set-Cookie", cookie.toString())
+        .build();
     }
 }
